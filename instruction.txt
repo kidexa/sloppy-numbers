@@ -1,0 +1,32 @@
+Here are the instructions to publish your package to PyPI.
+
+1. Create accounts on PyPI and TestPyPI:
+   - PyPI: https://pypi.org/account/register/
+   - TestPyPI: https://test.pypi.org/account/register/
+
+2. Install the necessary tools:
+   - Open your terminal or command prompt and run the following command:
+     pip install build twine
+
+3. Build your package:
+   - In your terminal, navigate to the root directory of your project (the one containing pyproject.toml).
+   - Run the following command:
+     python -m build
+
+4. Upload your package to TestPyPI (a test server for packages):
+   - This step is recommended to ensure everything works as expected.
+   - Run the following command:
+     twine upload --repository testpypi dist/*
+   - You will be prompted for your TestPyPI username and password.
+
+5. Install your package from TestPyPI to verify it works:
+   - pip install --index-url https://test.pypi.org/simple/ --no-deps kidexa
+
+6. Upload your package to PyPI (the real package index):
+   - Once you are happy with your package, you can upload it to PyPI.
+   - Run the following command:
+     twine upload dist/*
+   - You will be prompted for your PyPI username and password.
+
+After these steps, your package will be available for anyone to install using:
+pip install kidexa
